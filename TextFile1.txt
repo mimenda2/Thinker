@@ -1,0 +1,14 @@
+﻿SelectApp Chrome
+SelectApp Notepad
+SelectApp devenv
+-
+Sleep 1000
+ExecuteFile Notepad.exe
+WriteText Texto
+WriteText de
+WriteText prueba
+Sleep 2000
+CloseProgram Notepad
+Sleep 2000
+ExecuteFile C:\projects\WCF MUS\MusService.sln
+SelectApp Chrome

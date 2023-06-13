@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Thinker": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\davca\\source\\repos\\Thinker\\TextFile1.txt"
+    }
+  }
+}
