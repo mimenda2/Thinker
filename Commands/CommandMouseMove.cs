@@ -32,29 +32,9 @@ namespace Thinker.Commands
                 var coords = opt1.Split(',');
                 if (coords.Length < 2)
                     return;
-                string optClick = "0";
-                if (coords.Length == 3)
-                    optClick = coords[2];
-                switch (optClick)
-                {
-                    case "0":
-                        await WindowsInput.Simulate.Events()
-                            .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
-                            .Invoke();
-                        break;
-                    case "1":
-                        await WindowsInput.Simulate.Events()
-                            .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
-                            .Click(ButtonCode.Left)
-                            .Invoke();
-                        break;
-                    case "2":
-                        await WindowsInput.Simulate.Events()
-                            .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
-                            .DoubleClick(ButtonCode.Left)
-                            .Invoke();
-                        break;
-                }
+                await WindowsInput.Simulate.Events()
+                    .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
+                    .Invoke();
             }
 
             //int xPos = Convert.ToInt32(coords[0]);
