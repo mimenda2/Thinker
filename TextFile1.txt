@@ -1,52 +1,48 @@
-﻿MouseMove 100,100
-Sleep 2000
-MouseMove 300,300
-Sleep 2000
-MouseMove 600,600
---
+﻿// moverme por el navegador
 SelectApp Chrome
 Sleep 2000
+MouseMove 10,10;600,600
 WriteText ::Control::Tab
-Sleep 1000
+Sleep 2000
+MouseMove 600,600;10,10
+WriteText ::Control::Tab
+MouseMove 600,600;10,10
+Sleep 2000
 WriteText ::Control::Shift::Tab
-Sleep 1000
-WriteText ::Control::Tab
-Sleep 1000
-WriteText ::Control::Tab
-Sleep 1000
-WriteText ::Control::Tab
-Sleep 1000
+MouseMove 10,10;600,600
+// moverme por el visual studio
 SelectApp devenv
+Sleep 2000
+WriteText ::F5
+Sleep 20000
+MouseMove 10,10;600,600
 WriteText ::Control::Tab
-Sleep 1000
+Sleep 2000
+MouseMove 10,10;600,600
 WriteText ::Control::Tab
-Sleep 1000
-WriteText ::Control::Tab
-Sleep 1000
+MouseMove 600,600;10,10
+Sleep 2000
 WriteText ::Control::Shift::Tab
---
-Sleep 1000
-SelectApp Chrome
-Sleep 1000
-SelectApp Notepad
-Sleep 1000
+MouseMove 600,600;800,10
+// abrir otro proyecto
+ExecuteFile C:\projects\WCF MUS\MusService.sln
+Sleep 20000
+WriteText ::F5
+Sleep 15000
+WriteText ::Alt::F4
+Sleep 5000
 SelectApp devenv
+Sleep 2000
+WriteText ::Shift::F5
+Sleep 2000
+WriteText ::Alt::F4
+Sleep 40000
+// abrir notepad
 ExecuteFile Notepad.exe
+Sleep 3000
 WriteText Texto
 WriteText de
 WriteText prueba
 Sleep 2000
 CloseProgram Notepad
-Sleep 2000
-ExecuteFile C:\projects\WCF MUS\MusService.sln
--
-Sleep 1000
-ExecuteFile Notepad.exe
-WriteText Texto
-WriteText de
-WriteText prueba
-Sleep 2000
-CloseProgram Notepad
-Sleep 2000
-ExecuteFile C:\projects\WCF MUS\MusService.sln
-SelectApp Chrome
+WriteText N

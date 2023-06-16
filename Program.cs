@@ -24,7 +24,7 @@ namespace Thinker
                         break;
                     if (string.IsNullOrEmpty(line))
                         continue;
-                    if (line.IndexOf(' ') < 0)
+                    if (line.IndexOf(' ') < 0 || line.StartsWith("/"))
                         continue;
                     var cmdStr = line.Substring(0, line.IndexOf(' '));
                     var cmdOpt1 = line.Substring(line.IndexOf(' ') + 1);
