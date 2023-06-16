@@ -5,12 +5,14 @@ using System.Text;
 using System.Linq;
 using System.Threading;
 using WindowsInput;
+using System.Threading.Tasks;
+using WindowsInput.Events;
 
 namespace Thinker.Commands
 {
     public class CommandCloseProgram : ICommands
     {
-        public void Execute(string opt1)
+        public async Task Execute(string opt1)
         {
             Process[] runningProcesses = Process.GetProcesses();
             foreach (Process process in runningProcesses)
@@ -19,11 +21,10 @@ namespace Thinker.Commands
                 {
                     process.CloseMainWindow();
                     Thread.Sleep(2000);
-                    var inputSimulator = new InputSimulator();
-                    inputSimulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.VK_N);
-                    Thread.Sleep(1500);
-                    inputSimulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.VK_N);
-                    //process.Kill();
+                    await WindowsInput.Simulate.Events()
+                        .Click(KeyCode.N).Wait(1000)
+                        .ClickChord(KeyCode.N).Wait(1000)
+                        .Invoke();
                 }
             }
         }

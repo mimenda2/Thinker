@@ -28,7 +28,20 @@ namespace Thinker
         public static extern bool ShowWindowAsync(HandleRef hWnd, int nCmdShow);
         [DllImport("user32.dll")]
         public static extern bool SetForegroundWindow(IntPtr WindowHandle);
-        public const int SW_RESTORE = 9;
+        public enum SW : int
+        {
+            HIDE = 0,
+            SHOWNORMAL = 1,
+            SHOWMINIMIZED = 2,
+            SHOWMAXIMIZED = 3,
+            SHOWNOACTIVATE = 4,
+            SHOW = 5,
+            MINIMIZE = 6,
+            SHOWMINNOACTIVE = 7,
+            SHOWNA = 8,
+            RESTORE = 9,
+            SHOWDEFAULT = 10
+        }
 
         private const int GWL_EXSTYLE = (-20);
         private const int WS_EX_TOOLWINDOW = 0x80;
@@ -63,5 +76,24 @@ namespace Thinker
 
         [DllImport("user32")]
         public static extern int GetDesktopWindow();
+
+        [DllImport("User32.Dll")]
+        public static extern long SetCursorPos(int x, int y);
+
+        [DllImport("User32.Dll")]
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int x;
+            public int y;
+
+            public POINT(int X, int Y)
+            {
+                x = X;
+                y = Y;
+            }
+        }
     }
 }

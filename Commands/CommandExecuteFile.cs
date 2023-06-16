@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Thinker.Commands
 {
     public class CommandExecuteFile : ICommands
     {
-        public void Execute(string opt1)
+        public async Task Execute(string opt1)
         {
             try
             {

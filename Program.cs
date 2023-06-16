@@ -3,14 +3,16 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Thinker.Commands;
+using WindowsInput.Events;
 
 namespace Thinker
 {
     class Program
     {
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             if (args?.Length == 1)
             {
@@ -20,14 +22,16 @@ namespace Thinker
                 {
                     if (line.StartsWith("-"))
                         break;
+                    if (string.IsNullOrEmpty(line))
+                        continue;
+                    if (line.IndexOf(' ') < 0)
+                        continue;
                     var cmdStr = line.Substring(0, line.IndexOf(' '));
                     var cmdOpt1 = line.Substring(line.IndexOf(' ') + 1);
                     ICommands cmd = Activator.CreateInstance(
                         Type.GetType($"Thinker.Commands.Command{cmdStr}"), null) as ICommands;
                     Trace.WriteLine($"EXECUTE {cmdStr}, parameter {cmdOpt1}");
-                    Thread.Sleep(1500);
-                    cmd.Execute(cmdOpt1);
-                    Thread.Sleep(1500);
+                    await cmd.Execute(cmdOpt1);
                 }
             }
         }

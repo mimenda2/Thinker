@@ -1,6 +1,44 @@
-﻿SelectApp Chrome
-SelectApp Notepad
+﻿MouseMove 100,100
+Sleep 2000
+MouseMove 300,300
+Sleep 2000
+MouseMove 600,600
+--
+SelectApp Chrome
+Sleep 2000
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Shift::Tab
+Sleep 1000
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Tab
+Sleep 1000
 SelectApp devenv
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Tab
+Sleep 1000
+WriteText ::Control::Shift::Tab
+--
+Sleep 1000
+SelectApp Chrome
+Sleep 1000
+SelectApp Notepad
+Sleep 1000
+SelectApp devenv
+ExecuteFile Notepad.exe
+WriteText Texto
+WriteText de
+WriteText prueba
+Sleep 2000
+CloseProgram Notepad
+Sleep 2000
+ExecuteFile C:\projects\WCF MUS\MusService.sln
 -
 Sleep 1000
 ExecuteFile Notepad.exe
