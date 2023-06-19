@@ -1,7 +1,4 @@
-﻿
---
-
-// moverme por el navegador
+﻿// moverme por el navegador
 SelectApp Chrome
 Sleep 2000
 WriteText ::F5
@@ -55,3 +52,24 @@ WriteText devexpress
 Sleep 2000
 CloseProgram Notepad
 WriteText N
+
+
+// seleccionar mail
+// pulsar en enviados recibidos
+// crear nuevo mail
+// escribir algo
+// descartar cambios
+
+// abrir oracle sql developer
+// abrir conexion contra la 214
+// ejecutar query
+// cerrar todo
+
+// abrir rocket
+// hacer reload
+
+// abrir GREDOS en modo testing screens
+// desde el entorno de desarrollo o desde proceso
+
+
+// abrir CheckDatabase y chequear base de datos por defecto

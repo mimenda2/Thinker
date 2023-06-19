@@ -13,16 +13,19 @@ namespace Thinker.Commands
     {
         public async Task Execute(string opt1)
         {
-            Process[] runningProcesses = Process.GetProcesses();
-            var names = runningProcesses.Select(x => x.ProcessName).ToList();
-            foreach (Process process in runningProcesses)
+            await Task.Run(() =>
             {
-                if (process.ProcessName.ToUpper().Equals(opt1.ToUpper()))
+                Process[] runningProcesses = Process.GetProcesses();
+                var names = runningProcesses.Select(x => x.ProcessName).ToList();
+                foreach (Process process in runningProcesses)
                 {
-                    NativeWin32.ShowWindowAsync(new HandleRef(null, process.MainWindowHandle), (int)NativeWin32.SW.SHOW);
-                    NativeWin32.SetForegroundWindow(process.MainWindowHandle);
+                    if (process.ProcessName.ToUpper().Equals(opt1.ToUpper()))
+                    {
+                        NativeWin32.ShowWindowAsync(new HandleRef(null, process.MainWindowHandle), (int)NativeWin32.SW.SHOW);
+                        NativeWin32.SetForegroundWindow(process.MainWindowHandle);
+                    }
                 }
-            }
+            });
         }
     }
 }

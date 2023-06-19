@@ -20,11 +20,11 @@ namespace Thinker
                 var lines = File.ReadAllLines(args[0]);
                 foreach(var line in lines)
                 {
-                    if (line.StartsWith("-"))
+                    if (line.StartsWith("-")) // stop program
                         break;
                     if (string.IsNullOrEmpty(line))
                         continue;
-                    if (line.IndexOf(' ') < 0 || line.StartsWith("/"))
+                    if (line.IndexOf(' ') < 0 || line.StartsWith("/")) // ignore comments
                         continue;
                     var cmdStr = line.Substring(0, line.IndexOf(' '));
                     var cmdOpt1 = line.Substring(line.IndexOf(' ') + 1);

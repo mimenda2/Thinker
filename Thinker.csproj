@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\davca\.nuget\packages\windowsinput\6.4.1\contentFiles\any\netcoreapp3.1\.nuget\mouse-keyboard-hook-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WindowsInput" Version="6.4.1" />
   </ItemGroup>
 

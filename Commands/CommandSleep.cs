@@ -10,7 +10,10 @@ namespace Thinker.Commands
     {
         public async Task Execute(string opt1)
         {
-            Thread.Sleep(int.Parse(opt1));
+            await Task.Run(() =>
+            {
+                Thread.Sleep(int.Parse(opt1));
+            });
         }
 
     }

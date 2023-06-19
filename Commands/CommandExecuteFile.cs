@@ -11,19 +11,22 @@ namespace Thinker.Commands
     {
         public async Task Execute(string opt1)
         {
-            try
+            await Task.Run(() =>
             {
-                Process.Start(@opt1);
-            }
-            catch
-            {
-                var p = new Process();
-                p.StartInfo = new ProcessStartInfo(@opt1)
+                try
                 {
-                    UseShellExecute = true
-                };
-                p.Start();
-            }
+                    Process.Start(@opt1);
+                }
+                catch
+                {
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo(@opt1)
+                    {
+                        UseShellExecute = true
+                    };
+                    p.Start();
+                }
+            });
         }
 
     }
