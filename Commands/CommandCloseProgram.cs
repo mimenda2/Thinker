@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Threading;
-using WindowsInput;
 using System.Threading.Tasks;
 using WindowsInput.Events;
 
