@@ -11,31 +11,29 @@ namespace Thinker.Commands
     {
         public async Task Execute(string opt1)
         {
-            await Task.Run(() =>
+            try
             {
-                try
-                {
-                    var p = new Process();
-                    string arguments = "";
-                    int paramIndex = opt1.IndexOf("-");
+                var p = new Process();
+                string arguments = "";
+                int paramIndex = opt1.IndexOf("-");
 
-                    if (paramIndex > 0)
-                    {
-                        arguments = opt1.Substring(paramIndex);
-                        opt1 = opt1.Substring(0, paramIndex);
-                    }
-                    p.StartInfo = new ProcessStartInfo(@opt1)
-                    {
-                        UseShellExecute = true,
-                        Arguments = arguments
-                    };
-                    p.Start();
-                }
-                catch
+                if (paramIndex > 0)
                 {
-                    Process.Start(@opt1);
+                    arguments = opt1.Substring(paramIndex);
+                    opt1 = opt1.Substring(0, paramIndex);
                 }
-            });
+                p.StartInfo = new ProcessStartInfo(@opt1)
+                {
+                    UseShellExecute = true,
+                    Arguments = arguments
+                };
+                p.Start();
+            }
+            catch
+            {
+                Process.Start(@opt1);
+            }
+            await Task.Delay(0);
         }
 
     }
