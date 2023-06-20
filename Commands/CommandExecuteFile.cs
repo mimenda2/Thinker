@@ -15,13 +15,10 @@ namespace Thinker.Commands
             {
                 try
                 {
-                    Process.Start(@opt1);
-                }
-                catch
-                {
                     var p = new Process();
                     string arguments = "";
                     int paramIndex = opt1.IndexOf("-");
+
                     if (paramIndex > 0)
                     {
                         arguments = opt1.Substring(paramIndex);
@@ -33,6 +30,10 @@ namespace Thinker.Commands
                         Arguments = arguments
                     };
                     p.Start();
+                }
+                catch
+                {
+                    Process.Start(@opt1);
                 }
             });
         }
