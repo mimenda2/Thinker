@@ -12,7 +12,7 @@ namespace Thinker.Commands
 {
     public class CommandMouseMove : ICommands
     {
-        public async Task Execute(string opt1)
+        public void Execute(string opt1)
         {
             if (opt1.Contains(";")) // mover de un punto a otro
             {
@@ -25,16 +25,16 @@ namespace Thinker.Commands
                 int initY = Convert.ToInt32(coordsInit[1]);
                 int endX = Convert.ToInt32(coordsEnd[0]);
                 int endY = Convert.ToInt32(coordsEnd[1]);
-                await CustomMoveMouseAsync(initX, endX, initY, endY, inc);
+                Task.Run(() => CustomMoveMouseAsync(initX, endX, initY, endY, inc)).Wait();
             }
             else
             {
                 var coords = opt1.Split(',');
                 if (coords.Length < 2)
                     return;
-                await WindowsInput.Simulate.Events()
+                Task.Run(() => WindowsInput.Simulate.Events()
                     .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
-                    .Invoke();
+                    .Invoke()).Wait();
             }
 
             //int xPos = Convert.ToInt32(coords[0]);

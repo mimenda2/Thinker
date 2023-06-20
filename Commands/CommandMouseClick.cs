@@ -5,24 +5,24 @@ namespace Thinker.Commands
 {
     public class CommandMouseClick : ICommands
     {
-        public async Task Execute(string opt1)
+        public void Execute(string opt1)
         {
             switch (opt1)
             {
                 case "0":
-                    await WindowsInput.Simulate.Events()
+                    Task.Run(() => WindowsInput.Simulate.Events()
                         .Click(ButtonCode.Left)
-                        .Invoke();
+                        .Invoke()).Wait();
                 break;
                 case "1":
-                    await WindowsInput.Simulate.Events()
+                    Task.Run(() => WindowsInput.Simulate.Events()
                         .DoubleClick(ButtonCode.Left)
-                        .Invoke();
+                        .Invoke()).Wait();
                     break;
                 case "2":
-                    await WindowsInput.Simulate.Events()
+                    Task.Run(() => WindowsInput.Simulate.Events()
                         .DoubleClick(ButtonCode.Right)
-                        .Invoke();
+                        .Invoke()).Wait();
                     break;
             }
         }

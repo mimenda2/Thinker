@@ -12,7 +12,7 @@ namespace Thinker.Commands
 {
     public class CommandWriteText : ICommands
     {
-        public async Task Execute(string opt1)
+        public void Execute(string opt1)
         {
             if (opt1.StartsWith("::"))
             {
@@ -21,14 +21,14 @@ namespace Thinker.Commands
                 for(int i = 0; i < keys.Length; i++)
                     codes[i] = (KeyCode)Enum.Parse(typeof(KeyCode), keys[i]);
 
-                await WindowsInput.Simulate.Events()
+                Task.Run(() => WindowsInput.Simulate.Events()
                                 .ClickChord(codes).Wait(1000)
-                                .Invoke();
+                                .Invoke()).Wait();
             }
             else
-                await WindowsInput.Simulate.Events()
+                Task.Run(() => WindowsInput.Simulate.Events()
                                 .Click(opt1).Wait(Math.Max(1000, 500*opt1.Length))
-                                .Invoke();
+                                .Invoke()).Wait();
         }
 
     }

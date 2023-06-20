@@ -12,7 +12,7 @@ namespace Thinker
     class Program
     {
 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             if (args?.Length == 1)
             {
@@ -31,7 +31,7 @@ namespace Thinker
                     ICommands cmd = Activator.CreateInstance(
                         Type.GetType($"Thinker.Commands.Command{cmdStr}"), null) as ICommands;
                     Trace.WriteLine($"EXECUTE {cmdStr}, parameter {cmdOpt1}");
-                    await cmd.Execute(cmdOpt1);
+                    cmd.Execute(cmdOpt1);
                 }
             }
         }

@@ -7,6 +7,6 @@ namespace Thinker.Commands
 {
     public interface ICommands
     {
-        Task Execute(string opt1);
+        void Execute(string opt1);
     }
 }

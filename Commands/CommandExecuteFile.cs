@@ -9,7 +9,7 @@ namespace Thinker.Commands
 {
     public class CommandExecuteFile : ICommands
     {
-        public async Task Execute(string opt1)
+        public void Execute(string opt1)
         {
             try
             {
@@ -33,7 +33,6 @@ namespace Thinker.Commands
             {
                 Process.Start(@opt1);
             }
-            await Task.Delay(0);
         }
 
     }

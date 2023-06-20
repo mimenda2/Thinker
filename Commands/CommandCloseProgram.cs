@@ -12,7 +12,7 @@ namespace Thinker.Commands
 {
     public class CommandCloseProgram : ICommands
     {
-        public async Task Execute(string opt1)
+        public void Execute(string opt1)
         {
             Process[] runningProcesses = Process.GetProcesses();
             foreach (Process process in runningProcesses)
@@ -21,10 +21,10 @@ namespace Thinker.Commands
                 {
                     process.CloseMainWindow();
                     Thread.Sleep(2000);
-                    await WindowsInput.Simulate.Events()
+                    Task.Run(() => WindowsInput.Simulate.Events()
                         .Click(KeyCode.N).Wait(1000)
                         .ClickChord(KeyCode.N).Wait(1000)
-                        .Invoke();
+                        .Invoke()).Wait();
                 }
             }
         }
