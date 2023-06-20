@@ -16,7 +16,7 @@ namespace Thinker.Commands
             await Task.Run(() =>
             {
                 Process[] runningProcesses = Process.GetProcesses();
-                var names = runningProcesses.Select(x => x.ProcessName).ToList();
+                //var names = runningProcesses.Select(x => x.ProcessName).ToList();
                 foreach (Process process in runningProcesses)
                 {
                     if (process.ProcessName.ToUpper().Equals(opt1.ToUpper()))

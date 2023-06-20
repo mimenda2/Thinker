@@ -1,4 +1,7 @@
-﻿// moverme por el navegador
+﻿Sleep 20000
+
+--
+// moverme por el navegador
 SelectApp Chrome
 Sleep 2000
 WriteText ::F5
@@ -13,6 +16,7 @@ Sleep 2000
 WriteText ::Control::Shift::Tab
 WriteText ::F5
 MouseMove 10,10;600,600
+--
 
 // moverme por el visual studio
 SelectApp devenv
