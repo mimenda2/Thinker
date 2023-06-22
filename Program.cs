@@ -12,7 +12,7 @@ namespace Thinker
         {
             if (args?.Length == 1)
             {
-                CommandSleep cmdSleep = new CommandSleep();
+                DateTime startTime = DateTime.Now;
                 var lines = File.ReadAllLines(args[0]);
                 foreach(var line in lines)
                 {
@@ -29,6 +29,9 @@ namespace Thinker
                     Trace.WriteLine($"EXECUTE {cmdStr}, parameter {cmdOpt1}");
                     cmd.Execute(cmdOpt1);
                 }
+
+                TimeSpan dif = DateTime.Now - startTime;
+                Console.WriteLine("Time to execute: " + dif.ToString("mm:ss"));
             }
         }
     }
