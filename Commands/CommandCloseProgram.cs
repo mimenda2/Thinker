@@ -1,7 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using WindowsInput.Events;
 
 namespace Thinker.Commands
 {
@@ -15,11 +12,6 @@ namespace Thinker.Commands
                 if (process.ProcessName.ToUpper().Equals(opt1.ToUpper()))
                 {
                     process.CloseMainWindow();
-                    Thread.Sleep(2000);
-                    Task.Run(() => WindowsInput.Simulate.Events()
-                        .Click(KeyCode.N).Wait(1000)
-                        .ClickChord(KeyCode.N).Wait(1000)
-                        .Invoke()).Wait();
                 }
             }
         }
