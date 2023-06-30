@@ -14,20 +14,30 @@ namespace Thinker
             {
                 DateTime startTime = DateTime.Now;
                 var lines = File.ReadAllLines(args[0]);
-                foreach(var line in lines)
+                bool repeat = true;
+                while(repeat)
                 {
-                    if (line.StartsWith("-")) // stop program
-                        break;
-                    if (string.IsNullOrEmpty(line))
-                        continue;
-                    if (line.IndexOf(' ') < 0 || line.StartsWith("/")) // ignore comments
-                        continue;
-                    var cmdStr = line.Substring(0, line.IndexOf(' '));
-                    var cmdOpt1 = line.Substring(line.IndexOf(' ') + 1);
-                    ICommands cmd = Activator.CreateInstance(
-                        Type.GetType($"Thinker.Commands.Command{cmdStr}"), null) as ICommands;
-                    Trace.WriteLine($"EXECUTE {cmdStr}, parameter {cmdOpt1}");
-                    cmd.Execute(cmdOpt1);
+                    repeat = false;
+                    foreach (var line in lines)
+                    {
+                        if (line.StartsWith("-")) // stop program
+                            break;
+                        if (string.IsNullOrEmpty(line))
+                            continue;
+                        if (line.IndexOf(' ') < 0 || line.StartsWith("/")) // ignore comments
+                            continue;
+                        var cmdStr = line.Substring(0, line.IndexOf(' '));
+                        if (cmdStr == "LOOP")
+                        {
+                            repeat = true;
+                            break;
+                        }
+                        var cmdOpt1 = line.Substring(line.IndexOf(' ') + 1);
+                        ICommands cmd = Activator.CreateInstance(
+                            Type.GetType($"Thinker.Commands.Command{cmdStr}"), null) as ICommands;
+                        Trace.WriteLine($"EXECUTE {cmdStr}, parameter {cmdOpt1}");
+                        cmd.Execute(cmdOpt1);
+                    }
                 }
 
                 TimeSpan dif = DateTime.Now - startTime;

@@ -13,7 +13,7 @@ namespace Thinker.Commands
                 var coordsInit = points[0].Split(',');
                 var coordsEnd = points[1].Split(',');
                 Random rnd = new Random();
-                int inc = rnd.Next(3, 6);
+                int inc = rnd.Next(4, 8);
                 int initX = Convert.ToInt32(coordsInit[0]);
                 int initY = Convert.ToInt32(coordsInit[1]);
                 int endX = Convert.ToInt32(coordsEnd[0]);
@@ -38,20 +38,24 @@ namespace Thinker.Commands
         }
         async Task CustomMoveMouseAsync(int initX, int endX, int initY, int endY, int inc)
         {
-            while (initX != endX || initY != endY)
+            try
             {
-                if (initX < endX)
-                    initX = Math.Min(endX, initX + inc);
-                else
-                    initX = Math.Max(endX, initX - inc);
-                if (initY < endY)
-                    initY = Math.Min(endY, initY + inc);
-                else
-                    initY = Math.Max(endY, initY - inc);
-                await WindowsInput.Simulate.Events()
-                    .MoveTo(initX, initY).Wait(50)
-                    .Invoke();
+                while (initX != endX || initY != endY)
+                {
+                    if (initX < endX)
+                        initX = Math.Min(endX, initX + inc);
+                    else
+                        initX = Math.Max(endX, initX - inc);
+                    if (initY < endY)
+                        initY = Math.Min(endY, initY + inc);
+                    else
+                        initY = Math.Max(endY, initY - inc);
+                    await WindowsInput.Simulate.Events()
+                        .MoveTo(initX, initY).Wait(50)
+                        .Invoke();
+                }
             }
+            catch { } // do nothing
         }
     }
 }

@@ -1,67 +1,186 @@
-﻿// moverme por el navegador
-SelectApp Chrome
-Sleep 2000
-WriteText ::F5
-MouseMove 10,10;600,600
-WriteText ::Control::Tab
-WriteText ::F5
-Sleep 2000
-MouseMove 600,600;10,10
-WriteText ::Control::Tab
-MouseMove 600,600;10,10
-Sleep 2000
-WriteText ::Control::Shift::Tab
-WriteText ::F5
-MouseMove 10,10;600,600
-
---
-// moverme por el navegador
-SelectApp Chrome
-Sleep 2000
-WriteText ::F5
-MouseMove 10,10;600,600
-WriteText ::Control::Tab
-WriteText ::F5
-Sleep 2000
-MouseMove 600,600;10,10
-WriteText ::Control::Tab
-MouseMove 600,600;10,10
-Sleep 2000
-WriteText ::Control::Shift::Tab
-WriteText ::F5
-MouseMove 10,10;600,600
---
-
-// moverme por el visual studio
+﻿// cerrar el visual studio
 SelectApp devenv
 Sleep 2000
-WriteText ::F5
-Sleep 20000
-MouseMove 10,10;600,600
-WriteText ::Control::Tab
+CloseProgram devenv
+Sleep 5000
+WriteText S
 Sleep 2000
-MouseMove 10,10;600,600
-WriteText ::Control::Tab
-MouseMove 600,600;10,10
+WriteText ::Escape
+Sleep 2000
+
+// moverme por el visual studio
+ExecuteFile C:\GREDOS\Main\GREDOS_DESARROLLO.sln
+Sleep 20000
+SelectApp devenv
 Sleep 2000
 WriteText ::Control::Shift::Tab
-MouseMove 600,600;800,10
+WriteText ::F5
+Sleep 40000
+WriteText ::Escape
+Sleep 4000
+MouseMove 10,10;400,400
+WriteText ::Control::Tab
+Sleep 2000
+MouseMove 10,10;200,200
+WriteText ::Alt::O::L
+Sleep 15000
+WriteText ::Alt::O::S
+Sleep 90000
+WriteText ::F5
+Sleep 30000
+SelectApp devenv
+Sleep 2000
+CloseProgram devenv
+Sleep 5000
+WriteText S
+Sleep 2000
+WriteText ::Escape
+Sleep 2000
 
-// abrir otro proyecto
-ExecuteFile C:\projects\WCF MUS\MusService.sln
+// abrir rocket y refrescar
+SelectApp Rocket.Chat
+Sleep 2000
+WriteText ::Control::Shift::R
+Sleep 5000
+
+SelectApp sqldeveloper64W::3
+Sleep 2000
+
+LOOP 1
+--
+
+// abrir proyecto
+SelectApp devenv
+Sleep 2000
+CloseProgram devenv
+Sleep 5000
+ExecuteFile C:\GREDOS\Main\GREDOS_DESARROLLO.sln
 Sleep 20000
 WriteText ::F5
 Sleep 15000
 WriteText ::Alt::F4
 Sleep 5000
-SelectApp devenv
+WriteText ::Escape
 Sleep 2000
 WriteText ::Shift::F5
 Sleep 2000
 WriteText ::Alt::F4
-Sleep 40000
+Sleep 4000
+WriteText ::Escape
+Sleep 2000
 
-// abrir notepad
+// abrir CheckDatabase y chequear base de datos por defecto
+SelectApp devenv
+CloseProgram devenv
+Sleep 5000
+ExecuteFile C:\GREDOS\BD\CheckDatabase\CheckDatabase.sln
+Sleep 20000
+WriteText ::Alt::O::L
+Sleep 10000
+WriteText ::Alt::O::S
+Sleep 25000
+WriteText ::F5
+Sleep 15000
+WriteText ::Alt::D1
+Sleep 200000
+WriteText ::Escape
+Sleep 2000
+WriteText ::Alt::D4
+Sleep 2000
+WriteText ::Alt::D2
+Sleep 2000
+WriteText ::Alt::Tab
+Sleep 2000
+CloseProgram devenv
+Sleep 5000
+
+
+
+// abrir rocket y refrescar
+SelectApp Rocket.Chat
+Sleep 2000
+WriteText ::Control::Shift::R
+Sleep 5000
+
+// abrir oracle sql developer
+SelectApp sqldeveloper64W
+Sleep 2000
+CloseProgram sqldeveloper64W
+Sleep 5000
+ExecuteFile C:\sqldeveloper_4.2.0_x64\sqldeveloper.exe
+Sleep 15000
+SelectApp sqldeveloper64W::3
+Sleep 2000
+
+// abrir GREDOS en modo testing screens
+ExecuteFile C:\GREDOS\Main\GREDOS.bin\x86\Debug\gredos.exe --test-screens --skip-dbchecks --skip-updates  --manage-permissions2 
+Sleep 8000
+WriteText ::Tab
+Sleep 2000
+WriteText ::Tab
+Sleep 2000
+WriteText reg
+Sleep 2000
+WriteText ::Tab
+Sleep 2000
+WriteText 1
+Sleep 2000
+WriteText ::Enter
+Sleep 15000
+WriteText N
+Sleep 600000
+
+// seleccionar mail
+SelectApp OUTLOOK::3
+Sleep 2000
+WriteText ::Alt::V
+Sleep 2000
+WriteText ::D8
+Sleep 2000
+// crear nuevo mail
+WriteText ::Control::U
+Sleep 2000
+WriteText dav
+WriteText ::Tab
+Sleep 2000
+WriteText ::Tab
+Sleep 2000
+WriteText ::Tab
+Sleep 2000
+WriteText Mensaje desde el colegio de prueba
+WriteText ::Tab
+Sleep 2000
+WriteText Solo una prueba
+Sleep 2000
+WriteText ::Alt::E
+Sleep 2000
+WriteText ::Alt::V
+Sleep 2000
+WriteText ::D8
+Sleep 2000
+
+--
+
+// moverme por el navegador
+Sleep 2000
+SelectApp Chrome
+Sleep 2000
+WriteText ::F5
+MouseMove 10,10;600,600
+WriteText ::Control::Tab
+WriteText ::F5
+Sleep 2000
+MouseMove 600,600;10,10
+WriteText ::Control::Tab
+Sleep 2000
+MouseMove 600,600;10,10
+Sleep 2000
+WriteText ::Control::Shift::Tab
+WriteText ::F5
+MouseMove 10,10;600,600
+Sleep 2000
+
+/// abrir notepad
 ExecuteFile Notepad.exe
 Sleep 5000
 WriteText Buscar 
@@ -69,25 +188,4 @@ WriteText en
 WriteText devexpress
 Sleep 2000
 CloseProgram Notepad
-WriteText N
-
-
-// seleccionar mail
-// pulsar en enviados recibidos
-// crear nuevo mail
-// escribir algo
-// descartar cambios
-
-// abrir oracle sql developer
-// abrir conexion contra la 214
-// ejecutar query
-// cerrar todo
-
-// abrir rocket
-// hacer reload
-
-// abrir GREDOS en modo testing screens
-// desde el entorno de desarrollo o desde proceso
-
-
-// abrir CheckDatabase y chequear base de datos por defecto
+Sleep 2000
