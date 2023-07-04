@@ -29,12 +29,6 @@ namespace Thinker.Commands
                     .MoveTo(Convert.ToInt32(coords[0]), Convert.ToInt32(coords[1])).Wait(1000)
                     .Invoke()).Wait();
             }
-
-            //int xPos = Convert.ToInt32(coords[0]);
-            //int yPos = Convert.ToInt32(coords[1]);
-            //NativeWin32.POINT p = new NativeWin32.POINT(xPos, yPos);
-
-            //NativeWin32.SetCursorPos(p.x, p.y);
         }
         async Task CustomMoveMouseAsync(int initX, int endX, int initY, int endY, int inc)
         {

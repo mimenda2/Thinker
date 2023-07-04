@@ -1,6 +1,7 @@
 ﻿// cerrar el visual studio
 SelectApp devenv
 Sleep 2000
+--
 CloseProgram devenv
 Sleep 5000
 WriteText S

@@ -2,7 +2,7 @@
   "profiles": {
     "Thinker": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\Users\\davca\\source\\repos\\Thinker\\steps.txt"
+      "commandLineArgs": "--filename C:\\Users\\davca\\source\\repos\\Thinker\\steps.txt --loop --duration 15"
     }
   }
 }
