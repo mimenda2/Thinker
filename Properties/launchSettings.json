@@ -2,7 +2,7 @@
   "profiles": {
     "Thinker": {
       "commandName": "Project",
-      "commandLineArgs": "--filename C:\\Users\\davca\\source\\repos\\Thinker\\steps.txt --loop --duration 15"
+      "commandLineArgs": "--filename C:\\Users\\DavidCastellanos\\source\\repos\\Thinker\\bin\\Debug\\net8.0-windows7.0\\steps.txt --loop"
     }
   }
 }

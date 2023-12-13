@@ -47,9 +47,8 @@ namespace Thinker
                     traceFile = Path.Combine(Path.GetDirectoryName(
                         System.Reflection.Assembly.GetExecutingAssembly().Location), "thinkertraces.log");
                     if (!File.Exists(traceFile))
-                        File.Create(traceFile);
+                        File.WriteAllText(traceFile, "");
                 }
-
                 File.AppendAllText(traceFile,
                     $"{DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")}: {text}{Environment.NewLine}");
             }
